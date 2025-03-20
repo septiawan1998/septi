@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top-Up E-Wallet</title>
+</head>
+<body>
+    <h2>Top-Up E-Wallet via Shopee</h2>
+    <form id="topupForm">
+        <label>Nomor HP:</label>
+        <input type="text" id="phone" required><br><br>
+        
+        <label>Pilih E-Wallet:</label>
+        <select id="ewallet">
+            <option value="ShopeePay">ShopeePay</option>
+            <option value="Dana">Dana</option>
+            <option value="GoPay">GoPay</option>
+            <option value="OVO">OVO</option>
+        </select><br><br>
+        
+        <button type="submit">Lanjutkan</button>
+    </form>
+
+    <script>
+        document.getElementById("topupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let phone = document.getElementById("phone").value;
+            let ewallet = document.getElementById("ewallet").value;
+            
+            // Redirect ke Shopee
+            let shopeeUrl = `https://shopee.co.id/m/top-up-digital?phone=${phone}`;
+            window.location.href = shopeeUrl;
+        });
+    </script>
+</body>
+</html>
